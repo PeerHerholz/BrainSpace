@@ -52,6 +52,7 @@ generate_docker() {
             --run-bash 'apt-get update' \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
             --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 =======
             --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
@@ -59,11 +60,15 @@ generate_docker() {
 =======
             --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> update container informatio
+=======
+            --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> include container info
             --user=root \
             --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
             --user=brainspace \
             --miniconda \
                conda_install="python=3.7 panel pyqt pyvista notebook ipython" \
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
                pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
@@ -73,6 +78,9 @@ generate_docker() {
 =======
                pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> update container informatio
+=======
+               pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> include container info
                create_env='brainspace' \
                activate=true \
             --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
@@ -89,6 +97,7 @@ generate_singularity() {
               --run-bash 'apt-get update' \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
               --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 =======
               --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
@@ -96,11 +105,15 @@ generate_singularity() {
 =======
               --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> update container informatio
+=======
+              --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> include container info
               --user=root \
               --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
               --user=brainspace \
               --miniconda \
                  conda_install="python=3.7 panel pyqt pyvista notebook ipython" \
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
                  pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
@@ -110,11 +123,15 @@ generate_singularity() {
 =======
                  pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> update container informatio
+=======
+                 pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> include container info
                  create_env='brainspace' \
                  activate=true \
               --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
               --entrypoint="/neurodocker/startup.sh" \
               --workdir "/opt/miniconda-latest/envs/brainspace/lib/python3.7/site-packages/brainspace/examples" \
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
@@ -124,6 +141,9 @@ generate_singularity() {
 =======
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
 >>>>>>> update container informatio
+=======
+              --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb' 
+>>>>>>> include container info
  }
 
 # generate files
