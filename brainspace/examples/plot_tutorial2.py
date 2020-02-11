@@ -9,6 +9,10 @@ tutorial will only show you how to apply these techniques.
 """
 ###############################################################################
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
+=======
+<<<<<<< refs/remotes/origin/Development
+>>>>>>> adapt tutorials for binder
 # Customizing gradient computation
 # +++++++++++++++++++++++++++++++++
 # As before, we’ll start by loading the sample data.
