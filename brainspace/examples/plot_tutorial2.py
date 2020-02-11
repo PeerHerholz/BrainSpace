@@ -7,14 +7,15 @@ customization of gradient computation with different kernels and dimensionality
 reductions, as well as aligning gradients from different datasets. This
 tutorial will only show you how to apply these techniques.
 """
-
-
 ###############################################################################
-# As before, we’ll start by loading the sample data.
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
 
 
 import warnings
 warnings.simplefilter('ignore')
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
 
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
@@ -48,10 +49,11 @@ for i, k in enumerate(kernels):
     gradients_kernel[i] = map_to_labels(gm.gradients_[:, i], labeling, mask=mask,
                                         fill=np.nan)
 
+vdisplay.start()
 
 label_text = ['Pearson', 'Spearman', 'Normalized\nAngle']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_kernel, size=(1200, 800),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -72,11 +74,12 @@ for i, emb in enumerate(embeddings):
     gradients_embedding[i] = map_to_labels(gm.gradients_[:, 0], labeling, mask=mask,
                                            fill=np.nan)
 
+vdisplay.start()
 
 # sphinx_gallery_thumbnail_number = 2
 label_text = ['PCA', 'LE', 'DM']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_embedding, size=(1200, 800),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -105,9 +108,11 @@ for i in range(2):
     gradients_unaligned[i] = map_to_labels(gp.gradients_[i][:, 0], labeling,
                                            mask=mask, fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Unaligned Group 1', 'Unaligned Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_unaligned, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -118,9 +123,11 @@ for i in range(2):
     gradients_procrustes[i] = map_to_labels(gp.aligned_[i][:, 0], labeling, mask=mask,
                                             fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Procrustes Group 1', 'Procrustes Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_procrustes, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -131,9 +138,11 @@ for i in range(2):
     gradients_joint[i] = map_to_labels(gj.aligned_[i][:, 0], labeling, mask=mask,
                                        fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Joint Group 1', 'Joint Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_joint, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
