@@ -53,6 +53,7 @@ generate_docker() {
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
             --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 =======
             --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
@@ -63,6 +64,9 @@ generate_docker() {
 =======
             --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> include container info
+=======
+            --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> update container informatio
             --user=root \
             --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
             --user=brainspace \
@@ -71,6 +75,7 @@ generate_docker() {
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
                pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 =======
                pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
@@ -81,6 +86,9 @@ generate_docker() {
 =======
                pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> include container info
+=======
+               pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> update container informatio
                create_env='brainspace' \
                activate=true \
             --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
@@ -98,6 +106,7 @@ generate_singularity() {
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
               --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 =======
               --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
@@ -108,6 +117,9 @@ generate_singularity() {
 =======
               --install  libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> include container info
+=======
+              --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> update container informatio
               --user=root \
               --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
               --user=brainspace \
@@ -116,6 +128,7 @@ generate_singularity() {
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
                  pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 =======
                  pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
@@ -126,6 +139,9 @@ generate_singularity() {
 =======
                  pip_install='-r requirements.txt brainspace xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> include container info
+=======
+                 pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> update container informatio
                  create_env='brainspace' \
                  activate=true \
               --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
@@ -134,6 +150,7 @@ generate_singularity() {
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
 =======
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb' 
@@ -144,6 +161,9 @@ generate_singularity() {
 =======
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb' 
 >>>>>>> include container info
+=======
+              --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
+>>>>>>> update container informatio
  }
 
 # generate files

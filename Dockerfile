@@ -3,6 +3,7 @@
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
 # Timestamp: 2020-02-19 18:31:32 UTC
 =======
 # Timestamp: 2020-02-11 20:25:27 UTC
@@ -13,6 +14,9 @@
 =======
 # Timestamp: 2020-02-11 20:25:27 UTC
 >>>>>>> include container info
+=======
+# Timestamp: 2020-02-11 20:58:19 UTC
+>>>>>>> update container informatio
 # 
 # Thank you for using Neurodocker. If you discover any issues
 # or ways to improve this software, please submit an issue or
@@ -60,6 +64,7 @@ RUN apt-get update -qq \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
            git \
 =======
 >>>>>>> include container info
@@ -68,6 +73,9 @@ RUN apt-get update -qq \
 >>>>>>> update container informatio
 =======
 >>>>>>> include container info
+=======
+           git \
+>>>>>>> update container informatio
            libsm6 \
            libxext6 \
            libgl1-mesa-dev \
@@ -120,6 +128,7 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
              "git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support" \
 =======
              "brainspace" \
@@ -130,6 +139,9 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
 =======
              "brainspace" \
 >>>>>>> include container info
+=======
+             "git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support" \
+>>>>>>> update container informatio
              "xvfbwrapper" \
              "ipywidgets" \
              "ipyevents" \
@@ -166,6 +178,7 @@ RUN echo '{ \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
     \n        "git", \
 =======
 >>>>>>> include container info
@@ -174,6 +187,9 @@ RUN echo '{ \
 >>>>>>> update container informatio
 =======
 >>>>>>> include container info
+=======
+    \n        "git", \
+>>>>>>> update container informatio
     \n        "libsm6", \
     \n        "libxext6", \
     \n        "libgl1-mesa-dev", \
@@ -218,6 +234,7 @@ RUN echo '{ \
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
     \n          "git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support", \
 =======
     \n          "brainspace", \
@@ -228,6 +245,9 @@ RUN echo '{ \
 =======
     \n          "brainspace", \
 >>>>>>> include container info
+=======
+    \n          "git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support", \
+>>>>>>> update container informatio
     \n          "xvfbwrapper", \
     \n          "ipywidgets", \
     \n          "ipyevents", \
