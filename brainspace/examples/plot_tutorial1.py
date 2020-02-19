@@ -9,12 +9,23 @@ organization of the gradients looks like.
 # We’ll first start by loading some sample data. Note that we’re using
 # parcellated data for computational efficiency. Furthermore, we're setting up
 # a display necessary to use the `plot` functions inside a Jupyter Notebook within a container.
+<<<<<<< HEAD
 
-import warnings
-warnings.simplefilter('ignore')
 
 from xvfbwrapper import Xvfb
 vdisplay = Xvfb(width=1920, height=1080)
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> notebook_binder_support
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+>>>>>>> notebook_binder_support
 
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
