@@ -9,21 +9,18 @@ data may bias the test statistic. In this tutorial we will show two approaches
 for null hypothesis testing: spin permutations and Moran spectral
 randomization.
 
-.. note::
+**note**
     When using either approach to compare gradients to non-gradient markers,
     we recommend randomizing the non-gradient markers as these randomizations
     need not maintain the statistical independence between gradients.
 
 """
-
-
 ###############################################################################
 # Spin Permutations
 # ------------------------------
 #
 # Here, we use the spin permutations approach previously proposed in
-# `(Alexander-Bloch et al., 2018)
-# <https://www.sciencedirect.com/science/article/pii/S1053811918304968>`_,
+# [Alexander-Bloch et al., 2018](https://www.sciencedirect.com/science/article/pii/S1053811918304968),
 # which preserves the auto-correlation of the permuted feature(s) by rotating
 # the feature data on the spherical domain.
 # We will start by loading the conte69 surfaces for left and right hemispheres,
@@ -33,6 +30,11 @@ randomization.
 
 import numpy as np
 from brainspace.datasets import load_gradient, load_marker, load_conte69
+
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
 
 # load the conte69 hemisphere surfaces and spheres
 surf_lh, surf_rh = load_conte69()
@@ -71,8 +73,10 @@ thickness_rotated = np.hstack(sp.randomize(thickness_lh, thickness_rh))
 # As an illustration of the rotation, let’s plot the original t1w/t2w data
 
 # Plot original data
+vdisplay.start()
+
 plot_hemispheres(surf_lh, surf_rh, array_name=t1wt2w, size=(1200, 300), cmap='viridis',
-                 nan_color=(0.5, 0.5, 0.5, 1), color_bar=True)
+                 nan_color=(0.5, 0.5, 0.5, 1), color_bar=True, embed_nb=True)
 
 
 ###############################################################################
@@ -80,14 +84,16 @@ plot_hemispheres(surf_lh, surf_rh, array_name=t1wt2w, size=(1200, 300), cmap='vi
 
 # sphinx_gallery_thumbnail_number = 2
 # Plot some rotations
+vdisplay.start()
+
 plot_hemispheres(surf_lh, surf_rh, array_name=t1wt2w_rotated[:3], size=(1200, 800),
                  cmap='viridis', nan_color=(0.5, 0.5, 0.5, 1), color_bar=True,
-                 label_text=['Rot0', 'Rot1', 'Rot2'])
+                 label_text=['Rot0', 'Rot1', 'Rot2'], embed_nb=True)
 
 
 ###############################################################################
 #
-# .. warning::
+# **warning**
 #
 #    With spin permutations, midline vertices (i.e,, NaNs) from both the
 #    original and rotated data are discarded. Depending on the overlap of
@@ -195,4 +201,3 @@ for fn, data in rand.items():
 
     print('{0}:\n Obs  : {1:.5e}\n Moran: {2:.5e}\n'.
           format(fn.capitalize(), pv_obs, pv_rand))
-

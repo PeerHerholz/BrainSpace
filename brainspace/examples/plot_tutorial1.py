@@ -5,12 +5,27 @@ In this example, we will derive a gradient and do some basic inspections to
 determine which gradients may be of interest and what the multidimensional
 organization of the gradients looks like.
 """
-
-
 ###############################################################################
 # We’ll first start by loading some sample data. Note that we’re using
-# parcellated data for computational efficiency.
+# parcellated data for computational efficiency. Furthermore, we're setting up
+# a display necessary to use the `plot` functions inside a Jupyter Notebook within a container.
+<<<<<<< HEAD
 
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> notebook_binder_support
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+>>>>>>> notebook_binder_support
 
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
@@ -25,9 +40,11 @@ surf_lh, surf_rh = load_conte69()
 ###############################################################################
 # Let’s first look at the parcellation scheme we’re using.
 
+vdisplay.start()
+
 from brainspace.plotting import plot_hemispheres
 
-plot_hemispheres(surf_lh, surf_rh, array_name=labeling, size=(1200, 300), cmap='tab20')
+plot_hemispheres(surf_lh, surf_rh, array_name=labeling, size=(1200, 300), cmap='tab20', embed_nb=True)
 
 
 ###############################################################################
@@ -57,8 +74,10 @@ for i in range(2):
     # map the gradient to the parcels
     grad[i] = map_to_labels(gm.gradients_[:, i], labeling, mask=mask, fill=np.nan)
 
+vdisplay.start()
+
 plot_hemispheres(surf_lh, surf_rh, array_name=grad, size=(1200, 600), cmap='viridis_r',
-                 color_bar=True, label_text=['Grad1', 'Grad2'])
+                 color_bar=True, label_text=['Grad1', 'Grad2'], embed_nb=True)
 
 
 ###############################################################################

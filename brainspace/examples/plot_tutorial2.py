@@ -7,14 +7,53 @@ customization of gradient computation with different kernels and dimensionality
 reductions, as well as aligning gradients from different datasets. This
 tutorial will only show you how to apply these techniques.
 """
-
-
 ###############################################################################
+<<<<<<< HEAD
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
+<<<<<<< refs/remotes/origin/initial_draft_virtualization
+=======
+<<<<<<< refs/remotes/origin/Development
+>>>>>>> adapt tutorials for binder
+=======
+<<<<<<< HEAD
+<<<<<<< refs/remotes/origin/Development
+>>>>>>> notebook_binder_support
 # Customizing gradient computation
 # +++++++++++++++++++++++++++++++++
 # As before, we’ll start by loading the sample data.
+=======
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
+>>>>>>> notebook_binder_support
 
 
+=======
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
+
+
+import warnings
+warnings.simplefilter('ignore')
+
+<<<<<<< HEAD
+=======
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
+
+
+import warnings
+warnings.simplefilter('ignore')
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
+>>>>>>> adapt tutorials for binder
+=======
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
+<<<<<<< HEAD
+>>>>>>> adapt tutorials for binder
+=======
+>>>>>>> notebook_binder_support
+>>>>>>> notebook_binder_support
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
 # First load mean connectivity matrix and Schaefer parcellation
@@ -47,10 +86,11 @@ for i, k in enumerate(kernels):
     gradients_kernel[i] = map_to_labels(gm.gradients_[:, i], labeling, mask=mask,
                                         fill=np.nan)
 
+vdisplay.start()
 
 label_text = ['Pearson', 'Spearman', 'Normalized\nAngle']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_kernel, size=(1200, 800),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -71,11 +111,12 @@ for i, emb in enumerate(embeddings):
     gradients_embedding[i] = map_to_labels(gm.gradients_[:, 0], labeling, mask=mask,
                                            fill=np.nan)
 
+vdisplay.start()
 
 # sphinx_gallery_thumbnail_number = 2
 label_text = ['PCA', 'LE', 'DM']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_embedding, size=(1200, 800),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -107,9 +148,11 @@ for i in range(2):
     gradients_unaligned[i] = map_to_labels(gp.gradients_[i][:, 0], labeling,
                                            mask=mask, fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Unaligned Group 1', 'Unaligned Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_unaligned, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -120,9 +163,11 @@ for i in range(2):
     gradients_procrustes[i] = map_to_labels(gp.aligned_[i][:, 0], labeling, mask=mask,
                                             fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Procrustes Group 1', 'Procrustes Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_procrustes, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
@@ -133,9 +178,11 @@ for i in range(2):
     gradients_joint[i] = map_to_labels(gj.aligned_[i][:, 0], labeling, mask=mask,
                                        fill=np.nan)
 
+vdisplay.start()
+
 label_text = ['Joint Group 1', 'Joint Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_joint, size=(1200, 500),
-                 cmap='viridis_r', color_bar=True, label_text=label_text)
+                 cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
 
 
 ###############################################################################
