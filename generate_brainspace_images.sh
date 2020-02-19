@@ -50,6 +50,7 @@ generate_docker() {
             --base ubuntu:latest \
             --pkg-manager apt \
             --run-bash 'apt-get update' \
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
@@ -67,11 +68,15 @@ generate_docker() {
 =======
             --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> update container informatio
+=======
+            --install git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> notebook_binder_support
             --user=root \
             --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
             --user=brainspace \
             --miniconda \
                conda_install="python=3.7 panel pyqt pyvista notebook ipython" \
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
@@ -89,6 +94,9 @@ generate_docker() {
 =======
                pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> update container informatio
+=======
+               pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> notebook_binder_support
                create_env='brainspace' \
                activate=true \
             --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
@@ -103,6 +111,7 @@ generate_singularity() {
               --base ubuntu:latest \
               --pkg-manager apt \
               --run-bash 'apt-get update' \
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
@@ -120,11 +129,15 @@ generate_singularity() {
 =======
               --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
 >>>>>>> update container informatio
+=======
+              --install  git libsm6 libxext6 libgl1-mesa-dev libvtk6.3 xvfb\
+>>>>>>> notebook_binder_support
               --user=root \
               --run-bash "curl https://raw.githubusercontent.com/PeerHerholz/BrainSpace/master/requirements.txt > requirements.txt && chmod 777 requirements.txt"\
               --user=brainspace \
               --miniconda \
                  conda_install="python=3.7 panel pyqt pyvista notebook ipython" \
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
@@ -142,11 +155,15 @@ generate_singularity() {
 =======
                  pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
 >>>>>>> update container informatio
+=======
+                 pip_install='-r requirements.txt git+https://github.com/PeerHerholz/BrainSpace.git@notebook_binder_support xvfbwrapper ipywidgets ipyevents jupytext seaborn' \
+>>>>>>> notebook_binder_support
                  create_env='brainspace' \
                  activate=true \
               --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
               --entrypoint="/neurodocker/startup.sh" \
               --workdir "/opt/miniconda-latest/envs/brainspace/lib/python3.7/site-packages/brainspace/examples" \
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
@@ -164,6 +181,9 @@ generate_singularity() {
 =======
               --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
 >>>>>>> update container informatio
+=======
+              --add-to-entrypoint='jupytext --set-formats ipynb,py *.py && rm *.ipynb'
+>>>>>>> notebook_binder_support
  }
 
 # generate files

@@ -8,16 +8,32 @@ reductions, as well as aligning gradients from different datasets. This
 tutorial will only show you how to apply these techniques.
 """
 ###############################################################################
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 <<<<<<< refs/remotes/origin/initial_draft_virtualization
 =======
 <<<<<<< refs/remotes/origin/Development
 >>>>>>> adapt tutorials for binder
+=======
+<<<<<<< HEAD
+<<<<<<< refs/remotes/origin/Development
+>>>>>>> notebook_binder_support
 # Customizing gradient computation
 # +++++++++++++++++++++++++++++++++
 # As before, we’ll start by loading the sample data.
+=======
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
+>>>>>>> notebook_binder_support
 
 
+=======
+# As before, we’ll start by loading the sample data and defininf a display for the plots.
+
+
+import warnings
+warnings.simplefilter('ignore')
+
+<<<<<<< HEAD
 =======
 # As before, we’ll start by loading the sample data and defininf a display for the plots.
 
@@ -29,6 +45,15 @@ from xvfbwrapper import Xvfb
 vdisplay = Xvfb(width=1920, height=1080)
 
 >>>>>>> adapt tutorials for binder
+=======
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+
+<<<<<<< HEAD
+>>>>>>> adapt tutorials for binder
+=======
+>>>>>>> notebook_binder_support
+>>>>>>> notebook_binder_support
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
 # First load mean connectivity matrix and Schaefer parcellation
