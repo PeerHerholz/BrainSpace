@@ -6,12 +6,12 @@ to prepare it for subsequent gradient analysis in the next tutorials.
 
 Preprocessing
 -------------
-Begin with an MRI dataset that is organized in `BIDS
-<https://bids.neuroimaging.io/>`_ format. We recommend preprocessing your data
-using `fmriprep <http://fmriprep.readthedocs.io/>`_, as described below, but
+Begin with an MRI dataset that is organized in [BIDS](
+<)https://bids.neuroimaging.io/) format. We recommend preprocessing your data
+using [fmriprep](http://fmriprep.readthedocs.io/), as described below, but
 any preprocessing pipeline will work.
 
-Following is example code to run `fmriprep <http://fmriprep.readthedocs.io/>`_
+Following is example code to run [fmriprep](http://fmriprep.readthedocs.io/)
 using docker from the command line::
 
     docker run -ti --rm \\
@@ -21,7 +21,7 @@ using docker from the command line::
       --fs-license-file license.txt \\
       /data /out participant
 
-.. note::
+**note**
     For this tutorial, it is crucial to output the data onto a cortical surface
     template space.
 
@@ -33,11 +33,13 @@ using docker from the command line::
 # To remove confound regressors from the output of the fmriprep pipeline, first
 # extract the confound columns. For example::
 #
-#    from brainspace.utils.confound_loader import load_confounds
-#    confounds_out = load_confounds("path to confound file",
+#````
+#from brainspace.utils.confound_loader import load_confounds
+#confounds_out = load_confounds("path to confound file",
 #                               strategy='minimal',
 #                               n_components=0.95,
 #                               motion_model='6params')
+#````
 
 ###############################################################################
 # Otherwise, simply read in:
@@ -47,10 +49,10 @@ confounds_out = load_confounds_preprocessing()
 
 
 ###############################################################################
-# Then regress these confounds from the preprocessed data using `nilearn
-# <https://nilearn.github.io/auto_examples/03_connectivity/
+# Then regress these confounds from the preprocessed data using [nilearn](
+# https://nilearn.github.io/auto_examples/03_connectivity/
 # plot_signal_extraction.html#extract-signals-on-a-parcellation-
-# defined-by-labels/>`_
+# defined-by-labels/)
 
 import numpy as np
 from nilearn import datasets
@@ -94,8 +96,8 @@ seed_ts = reduce_by_labels(seed_ts[mask], labeling[mask], axis=1, red_op='mean')
 
 ###############################################################################
 # Calculate the functional connectivity matrix using
-# `nilearn <https://nilearn.github.io/auto_examples/03_connectivity/plot_
-# signal_extraction.html#compute-and-display-a-correlation-matrix/>`_:
+# [nilearn](https://nilearn.github.io/auto_examples/03_connectivity/plot_
+# signal_extraction.html#compute-and-display-a-correlation-matrix/):
 
 from nilearn.connectome import ConnectivityMeasure
 
