@@ -7,16 +7,15 @@ to prepare it for subsequent gradient analysis in the next tutorials.
 Requirements
 ------------
 For this tutorial, you will need to install the Python package
-`load_confounds <https://github.com/SIMEXP/fmriprep_load_confounds>`_. You can
-do it using ``pip``::
+[load_confounds](https://github.com/SIMEXP/fmriprep_load_confounds). You can
+do it using ``pip``:
 
     pip install load_confounds
 
 
 Preprocessing
 -------------
-Begin with an MRI dataset that is organized in [BIDS](
-<)https://bids.neuroimaging.io/) format. We recommend preprocessing your data
+Begin with an MRI dataset that is organized in [BIDS](https://bids.neuroimaging.io/) format. We recommend preprocessing your data
 using [fmriprep](http://fmriprep.readthedocs.io/), as described below, but
 any preprocessing pipeline will work.
 
@@ -34,15 +33,17 @@ using docker from the command line::
     For this tutorial, it is crucial to output the data onto a cortical surface
     template space.
 
+
 """
 
 ###############################################################################
 # Import the dataset as timeseries
-# ++++++++++++++++++++++++++++++++
+# --------------------------------------
 # The timeseries should be a numpy array with the dimensions: nodes x timepoints
 #
 # Following is an example for reading in data::
 #
+#    ```
 #    import nibabel as nib
 #    import numpy as np
 #
@@ -51,7 +52,10 @@ using docker from the command line::
 #    for i, h in enumerate(['lh', 'rh']):
 #        timeseries[i] = nib.load(filename.format(h)).get_fdata().squeeze()
 #    timeseries = np.vstack(timeseries)
-
+#    ```
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb(width=1920, height=1080)
+vdisplay.start()
 
 ###############################################################################
 # As a **working example**, simply fetch timeseries:
@@ -61,17 +65,17 @@ timeseries = fetch_timeseries_preprocessing()
 
 ###############################################################################
 # Confound regression
-# ++++++++++++++++++++++++
+# -------------------
 # To remove confound regressors from the output of the fmriprep pipeline, first
-# extract the confound columns. For example::
+# extract the confound columns. For example:
 #
-#    from brainspace.utils.confound_loader import load_confounds
-#    confounds_out = load_confounds("path to confound file",
-#                               strategy='minimal',
-#                               n_components=0.95,
-#                               motion_model='6params')
-#````
-
+#
+#     from brainspace.utils.confound_loader import load_confounds
+#     confounds_out = load_confounds("path to confound file",
+#                                   strategy='minimal',
+#                                   n_components=0.95,
+#                                   motion_model='6params')
+#
 
 ###############################################################################
 # As a **working example**, simply read in confounds
@@ -120,8 +124,7 @@ seed_ts = reduce_by_labels(clean_ts[mask], labeling[mask], axis=1, red_op='mean'
 
 ###############################################################################
 # Calculate the functional connectivity matrix using
-# `nilearn <https://nilearn.github.io/auto_examples/03_connectivity/plot_
-# signal_extraction.html#compute-and-display-a-correlation-matrix/>`_:
+# [nilearn](https://nilearn.github.io/auto_examples/03_connectivity/plot_signal_extraction.html#compute-and-display-a-correlation-matrix/):
 
 from nilearn.connectome import ConnectivityMeasure
 
@@ -149,7 +152,7 @@ corr_plot = plotting.plot_matrix(c, figure=(15, 15), labels=masked_regions,
 
 ###############################################################################
 # Run gradient analysis and visualize
-# +++++++++++++++++++++++++++++++++++
+# -----------------------------------
 #
 # Run gradient analysis
 

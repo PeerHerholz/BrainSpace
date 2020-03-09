@@ -34,6 +34,7 @@ from brainspace.datasets import load_gradient, load_marker, load_conte69
 
 from xvfbwrapper import Xvfb
 vdisplay = Xvfb(width=1920, height=1080)
+vdisplay.start()
 
 
 # load the conte69 hemisphere surfaces and spheres

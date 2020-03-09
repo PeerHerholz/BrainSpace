@@ -16,6 +16,7 @@ tutorial will only show you how to apply these techniques.
 
 from xvfbwrapper import Xvfb
 vdisplay = Xvfb(width=1920, height=1080)
+vdisplay.start()
 
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
