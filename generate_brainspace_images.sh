@@ -14,7 +14,7 @@
 # bash generate_brainspace_images.sh docker
 #
 #    and/or singularity image:
-# singularity build mindboggle.simg Singularity
+# singularity build brainspace.simg Singularity
 # OR
 # bash generate_brainspace_images.sh singularity
 #
@@ -32,7 +32,7 @@
 # docker pull your_docker_id/brainspace
 #
 # In the following, the Docker container can be the original (brainspace)
-# or the pulled version (ypur_docker_id/brainspace:tag), and is given access to /Users/brainspace
+# or the pulled version (your_docker_id/brainspace:tag), and is given access to /Users/brainspace
 # on the host machine.
 #
 # 5. Enter the bash shell of the Docker container, and add port mappings:
