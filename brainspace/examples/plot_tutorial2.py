@@ -8,52 +8,15 @@ reductions, as well as aligning gradients from different datasets. This
 tutorial will only show you how to apply these techniques.
 """
 ###############################################################################
-<<<<<<< HEAD
-<<<<<<< refs/remotes/origin/initial_draft_virtualization
-<<<<<<< refs/remotes/origin/initial_draft_virtualization
-=======
-<<<<<<< refs/remotes/origin/Development
->>>>>>> adapt tutorials for binder
-=======
-<<<<<<< HEAD
-<<<<<<< refs/remotes/origin/Development
->>>>>>> notebook_binder_support
+
 # Customizing gradient computation
 # +++++++++++++++++++++++++++++++++
-# As before, we’ll start by loading the sample data.
-=======
-# As before, we’ll start by loading the sample data and defininf a display for the plots.
->>>>>>> notebook_binder_support
+# As before, we’ll start by loading the sample data and define a display for the plots.
 
-
-=======
-# As before, we’ll start by loading the sample data and defininf a display for the plots.
-
-
-import warnings
-warnings.simplefilter('ignore')
-
-<<<<<<< HEAD
-=======
-# As before, we’ll start by loading the sample data and defininf a display for the plots.
-
-
-import warnings
-warnings.simplefilter('ignore')
 
 from xvfbwrapper import Xvfb
 vdisplay = Xvfb(width=1920, height=1080)
 
->>>>>>> adapt tutorials for binder
-=======
-from xvfbwrapper import Xvfb
-vdisplay = Xvfb(width=1920, height=1080)
-
-<<<<<<< HEAD
->>>>>>> adapt tutorials for binder
-=======
->>>>>>> notebook_binder_support
->>>>>>> notebook_binder_support
 from brainspace.datasets import load_group_fc, load_parcellation, load_conte69
 
 # First load mean connectivity matrix and Schaefer parcellation
@@ -148,8 +111,6 @@ for i in range(2):
     gradients_unaligned[i] = map_to_labels(gp.gradients_[i][:, 0], labeling,
                                            mask=mask, fill=np.nan)
 
-vdisplay.start()
-
 label_text = ['Unaligned Group 1', 'Unaligned Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_unaligned, size=(1200, 500),
                  cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
@@ -163,8 +124,6 @@ for i in range(2):
     gradients_procrustes[i] = map_to_labels(gp.aligned_[i][:, 0], labeling, mask=mask,
                                             fill=np.nan)
 
-vdisplay.start()
-
 label_text = ['Procrustes Group 1', 'Procrustes Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_procrustes, size=(1200, 500),
                  cmap='viridis_r', color_bar=True, label_text=label_text, embed_nb=True)
@@ -177,8 +136,6 @@ gradients_joint = [None] * 2
 for i in range(2):
     gradients_joint[i] = map_to_labels(gj.aligned_[i][:, 0], labeling, mask=mask,
                                        fill=np.nan)
-
-vdisplay.start()
 
 label_text = ['Joint Group 1', 'Joint Group 2']
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_joint, size=(1200, 500),
@@ -218,7 +175,8 @@ galign.fit(conn_matrix, reference=gref.gradients_)
 # rather than one per modality.
 #
 # First, let's load the example data of microstructural profile covariance
-# (Paquola et al., 2019) and functional connectivity.
+# `(Paquola et al., 2019) <https://journals.plos.org/plosbiology/article?
+# id=10.1371/journal.pbio.3000284>`_ and functional connectivity.
 
 from brainspace.datasets import load_group_mpc
 
@@ -235,7 +193,7 @@ seeds[1] = map_to_labels(mpc[0], labeling, mask=mask, fill=np.nan)
 
 # visualise the features from a seed region (seed 0)
 plot_hemispheres(surf_lh, surf_rh, array_name=seeds, label_text=['FC', 'MPC'],
-                 size=(1200, 500), color_bar=True, cmap='viridis')
+                 size=(1200, 400), color_bar=True, cmap='viridis', zoom=1.45, embed_nb=True)
 
 
 ###############################################################################
@@ -282,16 +240,18 @@ for i in range(2):
                                        fill=np.nan)
 
 plot_hemispheres(surf_lh, surf_rh, array_name=gradients_fused,
-                 label_text=['Gradient 1', 'Gradient 2'], size=(1200, 500),
-                 color_bar=True, cmap='viridis')
+                 label_text=['Gradient 1', 'Gradient 2'], size=(1200, 400),
+                 color_bar=True, cmap='viridis', zoom=1.45, embed_nb=True)
 
 
 ###############################################################################
 # .. note::
-#   The mpc matrix presented here matches the subject cohort of
-#   (Paquola et al., 2019). Other matrices in this package match the subject
-#   groups used by (Vos de Wael et al., 2018). We make direct comparisons in
-#   our tutorial for didactic purposes only.
+#   The mpc matrix presented here matches the subject cohort of `(Paquola et
+#   al., 2019) <https://journals.plos.org/plosbiology/article?id=10.1371/
+#   journal.pbio.3000284>`_. Other matrices in this package match the subject
+#   groups used by `(Vos de Wael et al., 2018) <https://www.pnas.org/content/
+#   115/40/10154.short>`_. We make direct comparisons in our tutorial for
+#   didactic purposes only.
 #
 # That concludes the second tutorial. In the third tutorial we will consider
 # null hypothesis testing of comparisons between gradients and other markers.
