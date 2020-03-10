@@ -29,7 +29,6 @@ mask = labeling != 0
 # and load the conte69 hemisphere surfaces
 surf_lh, surf_rh = load_conte69()
 
-
 ###############################################################################
 # The GradientMaps object allows for many different kernels and dimensionality
 # reduction techniques. Let’s have a look at three different kernels.
