@@ -10,7 +10,7 @@ tutorial will only show you how to apply these techniques.
 ###############################################################################
 
 # Customizing gradient computation
-# +++++++++++++++++++++++++++++++++
+# --------------------------------
 # As before, we’ll start by loading the sample data and define a display for the plots.
 
 
@@ -246,13 +246,11 @@ plot_hemispheres(surf_lh, surf_rh, array_name=gradients_fused,
 
 
 ###############################################################################
-# .. note::
-#   The mpc matrix presented here matches the subject cohort of `(Paquola et
-#   al., 2019) <https://journals.plos.org/plosbiology/article?id=10.1371/
-#   journal.pbio.3000284>`_. Other matrices in this package match the subject
-#   groups used by `(Vos de Wael et al., 2018) <https://www.pnas.org/content/
-#   115/40/10154.short>`_. We make direct comparisons in our tutorial for
-#   didactic purposes only.
+# **note**:
+#   The mpc matrix presented here matches the subject cohort of [Paquola et
+#   al., 2019](<https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000284).
+#   Other matrices in this package match the subject groups used by [Vos de Wael et al., 2018](https://www.pnas.org/content/115/40/10154.short).
+#   We make direct comparisons in our tutorial for didactic purposes only.
 #
 # That concludes the second tutorial. In the third tutorial we will consider
 # null hypothesis testing of comparisons between gradients and other markers.
